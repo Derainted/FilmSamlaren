@@ -20,10 +20,18 @@ async function fetchMovies(query = '') {
         loadingIndicator.style.display = 'block';
 
         const response = await fetch(url);
+
+        if (!response.ok) {
+            httpStatus(response.status);
+            return;
+        }
+
         const data = await response.json();
         displayMovies(data.results);
-    } catch (error) {
+    } 
+    catch (error) {
         console.error('Error fetching movies:', error);
+        mainContainer.innerHTML = `<p class="error">Error: ${error.message}</p>`;
     } finally {
         loadingIndicator.style.display = 'none';
     }
@@ -37,10 +45,18 @@ async function fetchPopularMovies() {
         loadingIndicator.style.display = 'block';
 
         const response = await fetch(url);
+
+        if (!response.ok) {
+            httpStatus(response.status);
+            return;
+        }
+
         const data = await response.json();
         displayMovies(data.results);
-    } catch (error) {
+    } 
+    catch (error) {
         console.error('Error fetching popular movies:', error);
+        mainContainer.innerHTML = `<p class="error">Error: ${error.message}</p>`;
     } finally {
         loadingIndicator.style.display = 'none';
     }
@@ -200,5 +216,21 @@ popularBtn.addEventListener('click', () => {
 if (document.body.contains(movieList) && window.location.pathname.includes('/html/popularMovies.html')) {
     fetchPopularMovies();
 }
+fetchMovies('popular');
 
-fetchMovies('scary');
+// Handle HTTP status codes
+function httpStatus(statusCode) {
+    switch (statusCode) {
+        case 401: 
+            console.error('Authentication failed: You do not have permissions to access the service.');
+            break;
+        case 404: 
+            console.error('Invalid id: The pre-requisite id is invalid or not found.');
+            break;
+        case 504: 
+            console.error('Invalid format: This service does not exist');
+            break;
+        default:
+            console.error('Unknown error, please try again');
+    }
+}
