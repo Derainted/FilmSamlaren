@@ -14,11 +14,22 @@
         <button id="show-popular">Show Popular</button>
     </header>
 
-    <main>
+    <div id="loading" class="loading-circle" style="display: none;"></div>
+
+    <main id="main-container">
         <section id="movie-list"></section>
         <article id="movie-details"></article>
     </main>
 
+    <div id="movie-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <img id="modal-image" src="" alt="Movie Poster">
+            <p id="modal-genre"></p>
+            <p id="modal-description"></p>
+        </div>
+    </div>
     
 
     <script src="/js/script.js"></script>
