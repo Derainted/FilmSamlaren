@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
-
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
 
     <header>
+      <nav>
+        <h1><a href="index.html" title="Go to the homepage">Home</a></h1>
         <h1>FilmSamlaren</h1>
-        <div id="main-container">
-            <input type="text" id="search" placeholder="Search movies">
-            <button id="favorite-toggle">Show Favorites</button>
-            <button id="show-popular">Show Popular Movies</button>
-        </div>
+        <section id="main-container">
+          <form role="search">
+            <input type="text" id="search" placeholder="Search movies" aria-label="Search movies" />
+          </form>
+          <button id="favorite-toggle" aria-pressed="false">Show Favorites</button>
+          <button id="show-popular" aria-pressed="false">Show Popular Movies</button>
+        </section>
+      </nav>
     </header>
 
     <main>
-        <div id="movie-list"></div>
-        <div id="movie-details"></div>
+      <div id="movie-list" role="list" aria-live="polite"> </div>
+      </div>
     </main>
 
-
+     <!-- popup window for movie details -->
+     <div id="movie-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <img id="modal-image" src="" alt="Movie Poster">
+            <p id="modal-genre"></p>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+    
     <script src="/js/script.js"></script>
-</body>
-
+  </body>
 </html>

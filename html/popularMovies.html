@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Your favorite movies on FilmSamlaren" />
     <link rel="stylesheet" href="/css/style.css" />
     <title>Favorites - FilmSamlaren</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
+    
     <header>
+      <nav>
+        <h1><a href="index.html" title="Go to homepage">Home</a></h1>
         <h1>Popular Movies</h1>
-        <nav>
-            <a href="index.html">Home</a>
-        </nav>
+        <div id="main-container">
+          <form role="search">
+            <input type="text" id="search" placeholder="Search movies" aria-label="Search for movies" />
+          </form>
+          <button id="favorite-toggle" aria-pressed="true" aria-label="Toggle showing favorites">Show Favorites</button>
+          <button id="show-popular" aria-pressed="false" aria-label="Toggle showing popular movies">Show Popular Movies</button>
+        </div>
+      </nav>
     </header>
 
     <main>
-        <div id="movie-list"></div>
+      <div id="movie-list" role="list" aria-live="polite">
+        <!-- Movies will be dynamically injected here -->
+      </div>
     </main>
 
     <script src="/js/script.js"></script>
-</body>
-
+  </body>
 </html>
