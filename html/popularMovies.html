@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/css/style.css" />
     <title>Favorites - FilmSamlaren</title>
   </head>
-
   <body>
     
     <header>
@@ -18,11 +17,13 @@
           <form role="search">
             <input type="text" id="search" placeholder="Search movies" aria-label="Search for movies" />
           </form>
-          <button id="favorite-toggle" aria-pressed="true" aria-label="Toggle showing favorites">Show Favorites</button>
-          <button id="show-popular" aria-pressed="false" aria-label="Toggle showing popular movies">Show Popular Movies</button>
+          <button id="favorite-toggle" aria-pressed="true" aria-label="Toggle showing favorites">Favorites</button>
+          <button id="show-popular" aria-pressed="false" aria-label="Toggle showing popular movies">Popular</button>
         </div>
       </nav>
     </header>
+
+    <div id="loading" class="loading-circle" style="display: none;"></div>
 
     <main>
       <div id="movie-list" role="list" aria-live="polite">

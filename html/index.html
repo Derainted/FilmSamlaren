@@ -12,16 +12,17 @@
     <header>
       <nav>
         <h1><a href="index.html" title="Go to the homepage">Home</a></h1>
-        <h1>FilmSamlaren</h1>
         <section id="main-container">
           <form role="search">
             <input type="text" id="search" placeholder="Search movies" aria-label="Search movies" />
           </form>
-          <button id="favorite-toggle" aria-pressed="false">Show Favorites</button>
-          <button id="show-popular" aria-pressed="false">Show Popular Movies</button>
+          <button id="favorite-toggle" aria-pressed="false">Favorites</button>
+          <button id="show-popular" aria-pressed="false">Popular</button>
         </section>
       </nav>
     </header>
+
+    <div id="loading" class="loading-circle" style="display: none;"></div>
 
     <main>
       <div id="movie-list" role="list" aria-live="polite"> </div>
